@@ -1,0 +1,187 @@
+body{
+    background: #1435AD;
+    min-width: 560px;
+}
+#container{
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    background: -webkit-linear-gradient(#578EBF, #1435AD); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#578EBF, #1435AD); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#578EBF, #1435AD); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#578EBF, #1435AD); /* Standard syntax */
+}
+body nav{
+    background-color: #FF5B11;
+    height: 70px;
+    border-bottom: 2px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+#nav-mobile li{
+    margin-left: 10px;
+}
+.brand-logo{
+    margin-right: 5%;
+}
+#logo{
+    margin-top: 0.6%;
+    margin-right: calc(6% + 73px)!important;
+}
+
+/* Add customer form */
+
+#addcustform{
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 60%;
+}
+.input-field {
+    width: 50% !important;
+}
+.input-field label {
+    color: #FF5B11 !important;
+    font-size: 15px !important;
+}
+.input-field input[type=text]{
+    width: 60% !important;
+    margin-right: 5%;
+}
+.input-field input[type=text]:focus {
+    border: 0px solid transparent;
+    box-shadow: 0 2px 0 0 #FF5B11 !important;
+}
+.red{
+    color: #FF5B11 !important;
+}
+
+/* ---------------- */
+
+
+/* Add order form */
+
+
+body select{
+    width: 150px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    background-color: green;
+    border-radius: 25px;
+    display: inline !important;
+    margin-right: 5%;
+}
+#orderrow{
+    width: 60%;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-bottom: 5%;
+}
+#orderrow span{
+    font-size: 15px;
+}
+#orderrow a{
+    margin-left: 5%;
+}
+#productinput{
+    width: 45px;
+    text-align: center;
+}
+#productinput:focus{
+    border: 0px solid transparent;
+    box-shadow: 0 2px 0 0 green !important;
+}
+
+/* -------------- */
+
+
+/* Add customer/order tables */
+
+.dispTable{
+    width: 80%;
+    margin-left:10%;
+    margin-bottom: 5px;
+}
+.dispTable a,
+.dispTable th {
+    color: #FF5B11;
+}
+.midtab{
+    text-align: center;
+}
+.delbtn{
+    background-color: red;
+    font-size: 15px;
+    text-shadow: 1px 1px 2px black;
+}
+#custName{
+    width: 15%;
+    margin-left: 10%;
+    margin-top: -25px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+#custName:focus{
+    border: 0px solid transparent;
+    box-shadow: 0 2px 0 0 #FF5B11 !important;
+}
+#orderProduct{
+    width: 15%;
+    margin-left: 10%;
+    margin-top: -25px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+#orderProduct:focus{
+    border: 0px solid transparent;
+    box-shadow: 0 2px 0 0 #FF5B11 !important;
+}
+/* ------------------ */
+
+
+
+/* ANIMATIONS
+============================================================================= */
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform: translateY(100%); }
+    to      { transform: translateY(0); }
+}
+
+/* fade out */
+@keyframes fadeOut {
+    from   { opacity: 1; }
+    to     { opacity: 0; }
+}
+
+.ng-enter{
+    animation: slideInUp 0.35s both ease-in;
+    z-index: 8888;
+}
+
+.ng-leave{
+    animation: fadeOut 0.25s both ease-in;
+    z-index: 9999;
+}
+
+/* ------------------------------------- */
+
+
+/* Error messages */
+
+.errormsg{
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin: 0 auto;
+}
+
+/* -------------- */
+
+
+.dashlink{
+    font-size: 18px;
+    text-align: center;
+    width: 150px;
+    margin-left: 45%;
+}

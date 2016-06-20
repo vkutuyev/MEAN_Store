@@ -1,0 +1,59 @@
+<div ng-controller='CustomersController'>
+
+    <table class='dispTable' id='custtbl'>
+        <thead>
+            <th><a href="" ng-click="sort='name'; sortReverse=!sortReverse;">Name</a></th>
+            <th class='midtab'>Created Date</th>
+            <th class='midtab'>Action</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat='customer in customers | filter:filter_name | orderBy: sort:sortReverse | limitTo: 3 track by $index'>
+                <td>{{customer.name}}</td>
+                <td class='midtab'>{{customer.createdAt}}</td>
+                <td class='midtab'><button type="button" class='delbtn' ng-click='remCust(customer)'>REMOVE</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#/customers" class='dashlink'>Show All Customers</a>
+
+</div>
+
+<div ng-controller='OrdersController'>
+
+    <table class='dispTable' id='ordertbl'>
+        <thead>
+            <th><a href="" ng-click="sort='custName'; sortReverse=!sortReverse;">Customer Name</a></th>
+            <th class='midtab'><a href="" ng-click="sort='product.name'; sortReverse=!sortReverse;">Product</a></th>
+            <th class='midtab'><a href="" ng-click="sort='orderQty'; sortReverse=!sortReverse;">Quantity</a></th>
+            <th class='midtab'>Date Ordered</th>
+            <th class='midtab'>Action</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat='order in orders | filter: filter_name | orderBy: sort:sortReverse | limitTo: 3 track by $index'>
+                <td>{{order.custName}}</td>
+                <td class='midtab'>{{order.product}}</td>
+                <td class='midtab'>{{order.orderQty}}</td>
+                <td class='midtab'>{{order.orderDate}}</td>
+                <td class='midtab'><button type="button" class='delbtn' ng-click='remOrder(order)'>Cancel Order</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#/orders" class='dashlink'>Show All Orders</a>
+
+    <table class='dispTable' id='prodtbl'>
+        <thead>
+            <th><a href="" ng-click="sort='name'; sortReverse=!sortReverse;">Product Name</a></th>
+            <th class='midtab'><a href="" ng-click="sort='qty'; sortReverse=!sortReverse;">Product Quantity</a></th>
+            <th class='midtab'>Action</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat='product in products | filter:filter_name | orderBy: sort:sortReverse | limitTo: 3 track by $index'>
+                <td>{{product.name}}</td>
+                <td class='midtab'>{{product.qty}} left</td>
+                <td class='midtab'><button type="button" class='delbtn' ng-click='remProd(product)'>REMOVE</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#/products" class='dashlink'>Show All Products</a>
+
+</div>

@@ -1,0 +1,30 @@
+<div ng-controller='CustomersController'>
+
+    <form id="addcustform">
+        <div class="input-field row">
+            <input type="text" name='name' ng-model='newCustomer.name'>
+            <label for="name" class='active'>Customer Name</label>
+            <button class="btn-floating btn-medium waves-effect waves-light red" ng-click='addCust()' ng-disabled='!newCustomer.name'><i id='custsubbtn' class="material-icons">add</i></button>
+            <span ng-show="error != ''" class='errormsg'> {{ error }}</span>
+        </div>
+    </form>
+
+
+    <label for="dispTable"><input id='custName' type="text" placeholder="Search Name" ng-model='filter_name.name'></label>
+
+    <table class='dispTable'>
+        <thead>
+            <th><a href="" ng-click="sort='name'; sortReverse=!sortReverse;">Name</a></th>
+            <th class='midtab'>Created Date</th>
+            <th class='midtab'>Action</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat='customer in customers | filter:filter_name | orderBy: sort:sortReverse track by $index'>
+                <td>{{customer.name}}</td>
+                <td class='midtab'>{{customer.createdAt}}</td>
+                <td class='midtab'><button type="button" class='delbtn' ng-click='remCust(customer)'>REMOVE</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

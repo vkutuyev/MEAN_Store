@@ -1,0 +1,32 @@
+<div ng-controller='OrdersController'>
+
+    <form id="addcustform">
+        <div class="input-field row">
+            <input type="text" name='name' ng-model='newProduct.name'>
+            <label for="name" class='active'>Product Name</label>
+            <input id='productinput' type="number" placeholder="#" ng-model='newProduct.qty' min='1' ng-disabled='!newProduct.name'>
+            <button class="btn-floating btn-medium waves-effect waves-light red" ng-click='addProd()' ng-disabled='!newProduct.name || !newProduct.qty'><i id='custsubbtn' class="material-icons">add</i></button>
+
+            <span ng-show="error != ''" class='errormsg'> {{ error }}</span>
+        </div>
+    </form>
+
+
+    <label for="dispTable"><input id='custName' type="text" placeholder="Search Product" ng-model='filter_name.name'></label>
+
+    <table class='dispTable'>
+        <thead>
+            <th><a href="" ng-click="sort='name'; sortReverse=!sortReverse;">Product Name</a></th>
+            <th class='midtab'><a href="" ng-click="sort='qty'; sortReverse=!sortReverse;">Product Quantity</a></th>
+            <th class='midtab'>Action</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat='product in products | filter:filter_name | orderBy: sort:sortReverse track by $index'>
+                <td>{{product.name}}</td>
+                <td class='midtab'>{{product.qty}} left</td>
+                <td class='midtab'><button type="button" class='delbtn' ng-click='remProd(product)'>REMOVE</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

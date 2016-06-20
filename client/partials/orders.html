@@ -1,0 +1,43 @@
+<div ng-controller='OrdersController'>
+
+    <div class="row" id='orderrow'>
+        <select class='browser-default select' ng-options="customer.name for customer in customers" ng-model='newOrder.custName'>
+            <option value='' selected disabled>Customer</option>
+        </select>
+
+        <select class='browser-default select' ng-options="product.name for product in products" ng-model='newOrder.product'>
+            <option value='' selected disabled>Product</option>
+        </select>
+
+        <input id='productinput' type="number" placeholder="#" ng-model='newOrder.orderQty' min='1' max='{{newOrder.product.qty}}' ng-disabled='!newOrder.product || newOrder.product.qty == 0'>
+
+
+        <button class="btn-floating btn-medium waves-effect waves-light green" ng-click='addOrder()' ng-disabled='!newOrder.product || !newOrder.custName || newOrder.product.qty == 0'><i id='custsubbtn' class="material-icons">add</i></button>
+
+        <span ng-show="error != ''" class='errormsg'> {{ error }}</span>
+        <span ng-show="newOrder.product.qty == 0" class='errormsg'>Error: Sold out!</span>
+    </div>
+
+    <div class="row">
+        <label for="dispTable"><input id='orderProduct' type="text" placeholder="Search Orders" ng-model='filter_name'></label>
+        <table class='dispTable' id='ordertbl'>
+            <thead>
+                <th><a href="" ng-click="sort='custName'; sortReverse=!sortReverse;">Customer Name</a></th>
+                <th class='midtab'><a href="" ng-click="sort='product.name'; sortReverse=!sortReverse;">Product</a></th>
+                <th class='midtab'><a href="" ng-click="sort='orderQty'; sortReverse=!sortReverse;">Quantity</a></th>
+                <th class='midtab'>Date Ordered</th>
+                <th class='midtab'>Action</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat='order in orders | filter: filter_name | orderBy: sort:sortReverse track by $index'>
+                    <td>{{order.custName}}</td>
+                    <td class='midtab'>{{order.product}}</td>
+                    <td class='midtab'>{{order.orderQty}}</td>
+                    <td class='midtab'>{{order.orderDate}}</td>
+                    <td class='midtab'><button type="button" class='delbtn' ng-click='remOrder(order)'>Cancel Order</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
