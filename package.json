@@ -1,5 +1,5 @@
 {
-  "name": "55API",
+  "name": "Mean Store",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "latest",
